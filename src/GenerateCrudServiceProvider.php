@@ -27,10 +27,6 @@ class GenerateCrudServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__.'/config/crud.php', 'crud'
         );
-
-        $this->publishes([
-            __DIR__.'/stubs' => base_path('stubs'),
-        ], 'crud-stubs');
     }
 
     public function boot()
