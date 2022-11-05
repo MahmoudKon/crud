@@ -144,27 +144,17 @@ class CreateDatatable extends GeneratorCommand
      */
     protected function addTranslations()
     {
+        $trans = '';
+        foreach($this->model->getFillable() as $column) {
+            if (stripos($column, '_id') !== false) continue;
+            $trans .= "\t\t'$column' => '". ucwords( str_replace('_', ' ', $column) ) ."',\n";
+        }
+        $trans .= "\n\t],\n\n";
+
         foreach (config('crud.languages') as $lang) {
             $file = $this->getTransFile($lang);
             if (!file_exists($file)) continue;
             $contents = file($file);
-
-            $trans = $close = '';
-            if (! array_search("\t'$this->table' => [\n", $contents)) {
-                $trans = "\n\t'$this->table' => [\n";
-                $close = "\n\t],\n\n";
-            }
-
-            foreach($this->model->getFillable() as $column) {
-                if (stripos($column, '_id') !== false) continue;
-                $text = "\t\t'$column' => '". ucwords( str_replace('_', ' ', $column) ) ."',\n";
-
-                if (! array_search($text, $contents))
-                    $trans .= $text;
-            }
-
-            $trans .= $close;
-
             $size = count($contents);
             $contents[$size -1] = $trans.$contents[$size-1];
             file_put_contents($file, $contents);
