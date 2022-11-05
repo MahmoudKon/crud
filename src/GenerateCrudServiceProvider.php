@@ -7,9 +7,8 @@ use CRUD\Commands\CreateController;
 use CRUD\Commands\CreateDatatable;
 use CRUD\Commands\CreateModel;
 use CRUD\Commands\CreateRequest;
-use CRUD\Commands\CreateRoute;
-use CRUD\Commands\CreateService;
-use CRUD\Commands\CreateView;
+use CRUD\Commands\CreateRoutes;
+use CRUD\Commands\CreateViews;
 
 class GenerateCrudServiceProvider extends ServiceProvider
 {
@@ -21,13 +20,12 @@ class GenerateCrudServiceProvider extends ServiceProvider
             CreateDatatable::class,
             CreateModel::class,
             CreateRequest::class,
-            CreateRoute::class,
-            CreateService::class,
-            CreateView::class,
+            CreateRoutes::class,
+            CreateViews::class,
         ]);
-        
+
         $this->mergeConfigFrom(
-            __DIR__.'/config/crud.php', 'messenger'
+            __DIR__.'/config/crud.php', 'crud'
         );
     }
 
