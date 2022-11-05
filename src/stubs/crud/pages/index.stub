@@ -1,0 +1,22 @@
+@extends('layouts.master')
+
+@section('content')
+    <div class="card">
+        <div class="card-header bg-info white">
+            <h4 class="card-title white">{{ table_title }} : {{ $count }} </h4>
+        </div>
+
+        <div class="card-content collpase show">
+            <div class="card-body">
+                <div class="table-responsive">
+                    {{ $dataTable->table([], true) }}
+                </div>
+            </div>
+        </div>
+
+    </div>
+@endsection
+
+@section('script')
+    {{ $dataTable->scripts() }}
+@endsection

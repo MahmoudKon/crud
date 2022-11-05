@@ -1,0 +1,13 @@
+<div class="col-md-12">
+    <div class="form-group">
+        <label class="{{ required }}">@lang('inputs.{{ trans_column }}')</label>
+        <div class="input-group">
+            <div class="custom-file">
+                <input type="file" name="{{ column }}" class="custom-file-input cursor-pointer form-control" accept="audio/*">
+            </div>
+        </div>
+        @error('{{ column }}')
+            <span class="text-danger" role="alert"> <strong>{{ $message }}</strong> </span>
+        @enderror
+    </div>
+</div>

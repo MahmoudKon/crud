@@ -1,0 +1,40 @@
+@extends('layouts.master')
+
+@section('content')
+    <div class="content-body">
+        <div class="card">
+
+            <div class="card-header bg-primary">
+                <h4 class="card-title white">
+                    <i class="ft-edit"></i><span class="mx-1">Edit {{ model }}</span>
+                </h4>
+            </div>
+
+            <div class="card-content collpase show">
+                <div class="card-body">
+                    <form action="{{ route('{{ table }}.update', ${{ model_var }}) }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        @method("PUT")
+                        <input type="hidden" name="id" value="{{ ${{ model_var }}->id }}">
+
+                        {{-- END FORM INPUTS --}}
+                        @include('{{ dir }}.inputs')
+                        {{-- END FORM INPUTS --}}
+
+                        <div class="form-actions d-flex m-0" style="justify-content: space-evenly;">
+                            <button type="reset" class="btn btn-warning">
+                                <i class="ft-repeat"></i> Reset
+                            </button>
+
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa fa-save"></i> Submit
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+@endsection

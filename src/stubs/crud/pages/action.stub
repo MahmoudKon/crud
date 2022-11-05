@@ -1,0 +1,7 @@
+<a href="{{ route('{{ table }}.edit', $id) }}" class="btn btn-primary"> <i class="fa fa-edit"></i> </a>
+
+<form action="{{ route('{{ table }}.destroy', $id) }}" method="POST" class='d-inline'>
+    {{ csrf_field() }}
+    @method('delete')
+    <button type="submit" class="btn btn-danger"> <i class="fa fa-trash"></i> </button>
+</form>

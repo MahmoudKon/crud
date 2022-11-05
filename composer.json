@@ -1,0 +1,29 @@
+{
+    "name": "mahmoudkon/crud",
+    "description": "this package to create full crud in laravel",
+    "autoload": {
+        "psr-4": {
+            "CRUD\\": "src/"
+        },
+        "files": [
+            "src/helpers/Helper.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "MahmoudKon",
+            "email": "mahmoud_mohammed050@yahoo.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "laravel/framework": "^9.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CRUD\\GenerateCrudServiceProvider"
+            ]
+        }
+    }
+}

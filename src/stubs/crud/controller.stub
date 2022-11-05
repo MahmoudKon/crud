@@ -1,0 +1,56 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\DataTables\{{ model_namespace }}DataTable;
+use App\Http\Controllers\Controller;
+use App\Models\{{ model_namespace }};
+use App\Http\Requests\{{ model_namespace }}Request;
+
+class {{ class }} extends Controller
+{
+    public function index({{ model }}DataTable $dataTable)
+    {
+        return $dataTable->render('{{ dir }}.index', ['count' => {{ model }}::count()]);
+    }
+
+    public function create()
+    {
+        return view('{{ dir }}.create', $this->append());
+    }
+
+    public function store({{ model }}Request $request)
+    {
+        {{ model }}::create($request->validated());
+        return redirect()->route('{{ table }}.index');
+    }
+
+    public function show({{ model }} ${{ model_var }})
+    {
+        return view('{{ dir }}.show', compact('{{ model_var }}'));
+    }
+
+    public function edit({{ model }} ${{ model_var }})
+    {
+        return view('{{ dir }}.edit', compact('{{ model_var }}'), $this->append());
+    }
+
+    public function update({{ model }}Request $request, {{ model }} ${{ model_var }})
+    {
+        ${{ model_var }}->update($request->validated());
+        return redirect()->route('{{ table }}.index');
+    }
+
+    public function destroy({{ model }} ${{ model_var }})
+    {
+        ${{ model_var }}->delete();
+        return redirect()->route('{{ table }}.index');
+    }
+
+    public function append()
+    {
+        return [
+            {{ appends }}
+        ];
+    }
+}

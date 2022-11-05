@@ -1,0 +1,16 @@
+<div class="col-md-12">
+    {{-- START {{ table }} --}}
+    <div class="form-group">
+        <label>{{ table }}</label>
+        <select class="select2 form-control" id="{{ table }}" name="{{ column }}" {{ required }}>
+            <option value="">--- Please-Select ---</option>
+            @foreach (${{ related }} as $id => $name)
+                <option value="{{ $id }}" @selected(isset(${{ model_var }}) && ${{ model_var }}->{{ column }} == $id)>{{ $name }}</option>
+            @endforeach
+        </select>
+        @error('{{ column }}')
+            <span class="text-danger" role="alert"> <strong>{{ $message }}</strong> </span>
+        @enderror
+    </div>
+    {{-- END {{ table }} --}}
+</div>

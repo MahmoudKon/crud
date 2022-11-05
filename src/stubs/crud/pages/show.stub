@@ -1,0 +1,31 @@
+@extends('{{ layout }}')
+
+@section('content')
+    <div class="content-body">
+        <div class="card">
+
+            <div class="card-header bg-primary">
+                <h4 class="card-title white">
+                    <i class="ft-edit"></i><span class="mx-1">Show {{ model }}</span>
+                </h4>
+            </div>
+
+            <div class="card-content collpase show">
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <tbody>
+                            @foreach (${{ model_var }}->getFillable() as $column)
+                                <tr>
+                                    <td style="width: 200px"> <b> @lang(config('crud.translation-file-name').".{{ table }}.$column") </b> </td>
+                                    <td> {{ ${{ model_var }}->$column }} </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+@endsection
+

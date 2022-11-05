@@ -1,0 +1,13 @@
+<div class="col-md-12">
+    {{-- START {{ column }} --}}
+    <div class="form-group">
+        <div>
+            <label class="" for="{{ column }}">@lang(config('crud.translation-file-name').'.{{ trans_column }}')</label>
+            <input type="checkbox" name="{{ column }}" id="{{ column }}" value="1" class="switchery" @checked(${{ model_var }}->{{ column }} ?? (old('{{ column }}')))>
+        </div>
+        @error('{{ column }}')
+            <span class="text-danger" role="alert"> <strong>{{ $message }}</strong> </span>
+        @enderror
+    </div>
+    {{-- END {{ column }} --}}
+</div>
