@@ -121,3 +121,11 @@ function convertCamelCaseTo(string $string, string $us = '_') :string
 {
     return strtolower( preg_replace('/([a-z]+)([A-Z]+)/', '$1'.$us.'$2', $string) );
 }
+
+function getStubFile($file)
+{
+    $stub = 'stubs'.DIRECTORY_SEPARATOR.'crud'.DIRECTORY_SEPARATOR.$file;
+    if (file_exists( base_path($stub) ))
+        return  base_path($stub);
+    return __DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.$stub;
+}
