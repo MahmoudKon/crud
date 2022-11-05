@@ -8,7 +8,7 @@ trait HasCRUD
 {
     protected function getStub()
     {
-        return getStubFile("$this->type.stub");
+        return  base_path() . DIRECTORY_SEPARATOR.'stubs'.DIRECTORY_SEPARATOR.'crud'.DIRECTORY_SEPARATOR."$this->type.stub";
     }
 
     /**

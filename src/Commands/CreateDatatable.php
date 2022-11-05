@@ -177,7 +177,7 @@ class CreateDatatable extends GeneratorCommand
 
     protected function copyTransFiles()
     {
-        $path = getStubFile("trans-datatable.stub");
+        $path = base_path() . DIRECTORY_SEPARATOR.'stubs'.DIRECTORY_SEPARATOR.'crud'.DIRECTORY_SEPARATOR."trans-datatable.stub";
         foreach (config('crud.languages') as $lang) {
             lang_path($lang);
             copy($path, lang_path($lang).DIRECTORY_SEPARATOR.'datatable.php');

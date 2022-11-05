@@ -191,7 +191,7 @@ class CreateViews extends GeneratorCommand
     {
         $related_table = stripos($column->Field, '_id') !== false ? Str::plural( str_replace('_id', '', $column->Field) ) : '';
         $type = $this->getInputType($column);
-        $content = file_get_contents( getStubFile("pages/html.$type.stub") );
+        $content = file_get_contents(base_path("stubs/crud/pages/html.$type.stub"));
         return str_replace([
             '{{ table }}',
             '{{ trans_column }}',
