@@ -20,11 +20,6 @@
         "laravel/framework": "^9.0",
         "yajra/laravel-datatables": "^9.0"
     },
-    "scripts": {
-        "post-root-package-install": [
-            "@php artisan vendor:publish --tag=crud-stubs --ansi --force"
-        ]
-    },
     "extra": {
         "laravel": {
             "providers": [
