@@ -41,7 +41,7 @@ class GenerateCrudServiceProvider extends ServiceProvider
 
 
         $this->publishes([
-            __DIR__.'/stubs' => base_path('stubs/crud'),
+            __DIR__.'/stubs' => base_path('stubs'),
         ], 'crud-stubs');
     }
 }
