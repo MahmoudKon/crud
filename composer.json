@@ -21,7 +21,7 @@
         "yajra/laravel-datatables": "^9.0"
     },
     "scripts": {
-        "post-update-cmd": [
+        "post-root-package-install": [
             "@php artisan vendor:publish --tag=crud-stubs --ansi --force"
         ]
     },
