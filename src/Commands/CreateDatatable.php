@@ -144,7 +144,7 @@ class CreateDatatable extends GeneratorCommand
      */
     protected function addTranslations()
     {
-        $trans = '';
+        $trans = "\n\t'$this->table' => [\n";
         foreach($this->model->getFillable() as $column) {
             if (stripos($column, '_id') !== false) continue;
             $trans .= "\t\t'$column' => '". ucwords( str_replace('_', ' ', $column) ) ."',\n";
